@@ -1,0 +1,92 @@
+/* google web font */
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+
+/* tags */
+body {
+  margin: 0px;
+  font-family: 'NanumSquare', sans-serif;
+}
+span {
+  margin-left: 10px;
+}
+hr {
+  color: gray;
+}
+
+/* class */
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(210, 212, 214);
+  padding: 10px 20px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 50px);
+}
+.list {
+  flex-grow: 4;
+  border-right: 1px solid rgb(210, 212, 214);
+  max-width: 260px;
+}
+.note {
+  flex-grow: 6;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 70px 0;
+}
+.input {
+  all: unset;
+}
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  border: 0px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+  width: 100%;
+}
+.note-contents {
+  font-size: 16px;
+  font-weight: 400;
+  height: calc(100% - 60px);
+}
+.header-title {
+  display: flex;
+  align-items: center;
+}
+.buttons {
+  all: unset;
+  margin: 0 0.5rem;
+}
+.list-item {
+  padding: 20px 30px;
+}
+.list-item:hover {
+  background-color: #f5f5f5;
+}
+.list-item:active {
+  background-color: #EEF3F8;
+}
+.listitem-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.list-item-contents {
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+/* id */
+#profile {
+  width: 40px;
+  border-radius: 100%;
+}

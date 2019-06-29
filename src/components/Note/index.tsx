@@ -12,8 +12,8 @@ class Note extends React.Component<Props, NoteState> {
   render() {
     return (
       <div className="note">
-        <input className="title" placeholder="title"/>
-        <textarea className="note-contents" placeholder="description"/>
+        <input className="title input" placeholder="title"/>
+        <textarea className="note-contents input" placeholder="description"/>
       </div>
     );
   }

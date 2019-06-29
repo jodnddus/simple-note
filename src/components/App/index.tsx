@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header';
 import List from '../List';
 import Note from '../Note';
+import './index.css';
 
 const App: React.FC = () => {
   return (
