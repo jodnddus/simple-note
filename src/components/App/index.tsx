@@ -1,9 +1,16 @@
 import React from 'react';
+import Header from '../Header';
+import List from '../List';
+import Note from '../Note';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <h1>Hello!</h1>
+      <Header />
+      <div className="container">
+        <List />
+        <Note />
+      </div>
     </div>
   );
 }
