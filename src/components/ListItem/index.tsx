@@ -1,14 +1,18 @@
 import React from 'react';
 
 interface Props {
-
+  title: string;
+  description: string;
+  onToggleListItem(id: number): void;
+  id: number;
+  active: boolean;
 }
 
-const ListItem: React.SFC<Props> = () => {
+const ListItem: React.SFC<Props> = ({title, description, onToggleListItem, id, active}) => {
   return (
-    <div className="list-item">
-      <div className="listitem-title">제목</div>
-      <div className="list-item-contents">내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</div>
+    <div onClick={() => onToggleListItem(id)} className={active ? "list-item active" : "list-item"}>
+      <div className="listitem-title">{title}</div>
+      <div className="list-item-contents">{description}</div>
     </div>
   );
 }
