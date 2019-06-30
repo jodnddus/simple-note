@@ -1,17 +1,11 @@
 import React from 'react';
-import Header from '../Header';
-import List from '../List';
-import Note from '../Note';
+import NoteContainer from '../noteContainer';
 import './index.css';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Header />
-      <div className="container">
-        <List />
-        <Note />
-      </div>
+      <NoteContainer />
     </div>
   );
 }
