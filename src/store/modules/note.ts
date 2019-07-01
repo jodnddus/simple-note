@@ -140,7 +140,8 @@ export function noteReducer(state = initialState, action: NoteActionTypes): Note
     case DELETE_NODE:
       return {
         ...state,
-        noteItems: state.noteItems.filter(noteItem => noteItem.id !== action.meta.id)
+        noteItems: state.noteItems.filter(noteItem => noteItem.id !== action.meta.id),
+        activeId: 0
       }
     case TOGGLE_LISTITEM:
       return {
