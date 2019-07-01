@@ -1,5 +1,4 @@
 import React from 'react';
-import { actionCreators as noteActions } from '../../store/modules/note';
 import profile from './profile.png';
 
 interface Props {

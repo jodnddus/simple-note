@@ -1,22 +1,21 @@
 import React from 'react';
-
-interface NoteState {
-
-}
+import { NoteItemDataParams } from '../../store/modules/note';
 
 interface Props {
-
+  noteItems: NoteItemDataParams[];
+  activeId: number;
+  onDescriptionInput(e: any): void;
+  onTitleInput(e: any): void;
 }
 
-class Note extends React.Component<Props, NoteState> {
-  render() {
-    return (
-      <div className="note">
-        <input className="title input" placeholder="title"/>
-        <textarea className="note-contents input" placeholder="description"/>
-      </div>
-    );
-  }
+const Note: React.SFC<Props> = ({ noteItems, activeId, onDescriptionInput, onTitleInput }) => {
+  const noteItem = noteItems.filter(noteItem => noteItem.id === activeId)[0];
+  return (
+    <div className="note">
+      <input className="title input" onChange={onTitleInput} value={noteItem.title} />
+      <textarea className="note-contents input" onChange={onDescriptionInput} value={noteItem.description} />
+    </div>
+  );
 }
 
 export default Note;

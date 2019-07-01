@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './Header';
 import List from './List';
-import ListItem from './ListItem';
 import Note from './Note';
 import { connect } from 'react-redux';
 import { StoreState } from '../store/modules';
@@ -36,23 +35,23 @@ class NoteContainer extends React.Component<Props> {
     const { value } = e.currentTarget;
     const { noteActions, activeId } = this.props;
     console.log(activeId);
-    noteActions.inputTitleAction(value);
+    noteActions.inputTitleAction(activeId, value);
   }
   onDescriptionInput = (e: React.FormEvent<HTMLInputElement>): void => {
     const { value } = e.currentTarget;
     const { noteActions, activeId } = this.props;
     console.log(activeId);
-    noteActions.inputDescriptionAction(value);
+    noteActions.inputDescriptionAction(activeId, value);
   }
   render() {
-    const { description, title, noteItems, activeId } = this.props;
+    const { noteItems, activeId } = this.props;
     const { onAddNote, onDeleteNote, onDescriptionInput, onTitleInput, onToggleListItem } = this;
     return (
       <div className="note-container">
         <Header onAddNote={onAddNote} onDeleteNote={() => onDeleteNote(activeId)} />
         <div className="container">
           <List noteItems={noteItems} onToggleListItem={onToggleListItem} activeId={activeId} />
-          <Note />
+          <Note noteItems={noteItems} onDescriptionInput={onDescriptionInput} onTitleInput={onTitleInput} activeId={activeId} />
         </div>
       </div>
     )

@@ -40,6 +40,7 @@ interface ToggleListItemAction {
 interface InputTitleAction {
   type: typeof INPUT_TITLE;
   meta: {
+    id: number;
     title: string;
   }
 }
@@ -47,6 +48,7 @@ interface InputTitleAction {
 interface InputDescriptionAction {
   type: typeof INPUT_DESCRIPTION;
   meta: {
+    id: number;
     description: string;
   }
 }
@@ -85,19 +87,21 @@ function toggleListItemAction(id: number) {
   };
 }
 
-function inputTitleAction(title: string) {
+function inputTitleAction(id: number, title: string) {
   return {
     type: INPUT_TITLE,
     meta: {
+      id,
       title
     }
   };
 }
 
-function inputDescriptionAction(description: string) {
+function inputDescriptionAction(id: number, description: string) {
   return {
     type: INPUT_DESCRIPTION,
     meta: {
+      id,
       description
     }
   }
@@ -146,12 +150,22 @@ export function noteReducer(state = initialState, action: NoteActionTypes): Note
     case INPUT_TITLE:
       return {
         ...state,
-        title: action.meta.title
+        noteItems: state.noteItems.map(noteItem => {
+          if (noteItem.id === action.meta.id) {
+            noteItem.title = action.meta.title;
+          }
+          return noteItem;
+        })
       }
     case INPUT_DESCRIPTION:
       return {
         ...state,
-        description: action.meta.description
+        noteItems: state.noteItems.map(noteItem => {
+          if (noteItem.id === action.meta.id) {
+            noteItem.description = action.meta.description;
+          }
+          return noteItem;
+        })
       }
     default:
       return state;
